@@ -1,5 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
-import { getAllTasks } from "../services/apiGetAllTasks";
+import { useQuery } from '@tanstack/react-query';
+import { getAllTasks } from '../../services/apiGetAllTasks';
 
 const useGetAllTasks = () => {
   const {
@@ -8,7 +8,7 @@ const useGetAllTasks = () => {
     error: errorGetAllTasks,
     refetch: refetchGetAllTasks,
   } = useQuery({
-    queryKey: ["get-all-tasks"],
+    queryKey: ['get-all-tasks'],
     queryFn: () => getAllTasks(),
     refetchOnWindowFocus: true,
   });

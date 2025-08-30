@@ -1,6 +1,6 @@
-import { useMutation } from "@tanstack/react-query";
-import addTask from "../services/apiAddTask";
-import { addTaskRequestT } from "../schema/addTaskSchema";
+import { useMutation } from '@tanstack/react-query';
+import addTask from '../../services/apiAddTask';
+import { addTaskRequestT } from '../../schema/addTaskSchema';
 
 const useAddTask = () => {
   const {
