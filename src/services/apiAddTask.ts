@@ -9,9 +9,7 @@ import {
 
 const addTask = async (data: addTaskRequestT): Promise<addTaskResponseT> => {
   try {
-    const response = await axiosInstance.post("/api/add-task", {
-      data,
-    });
+    const response = await axiosInstance.post("/api/add-task", data);
 
     const validateResponse = addTaskSuccessResponseSchema.parse(response.data);
     return validateResponse;
