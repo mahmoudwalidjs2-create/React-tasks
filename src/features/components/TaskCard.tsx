@@ -19,7 +19,7 @@ interface TaskCardProps {
 
 export default function TaskCard({ dataGetAllTasks }:TaskCardProps) {
   return (
-    <>
+    <div className="app text-center">
       <h1 className="title mb-6 text-3xl font-bold text-gray-800">
         📋 Task Manager
       </h1>
@@ -66,6 +66,6 @@ export default function TaskCard({ dataGetAllTasks }:TaskCardProps) {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }

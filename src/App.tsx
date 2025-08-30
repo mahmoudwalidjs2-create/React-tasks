@@ -14,7 +14,7 @@ function App() {
   const { dataGetAllTasks, isLoadingGetAllTasks, refetchGetAllTasks } =
     useGetAllTasks();
   const { mutateAddTask, isLoadingAddTask } = useAddTask();
-  
+
   if (isLoadingGetAllTasks) {
     return <div className="loading">Loading tasks...</div>;
   }
@@ -48,9 +48,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4">
-      <div className="app text-center">
-        <TaskCard dataGetAllTasks={dataGetAllTasks} />
-      </div>
+      <TaskCard dataGetAllTasks={dataGetAllTasks} />
       <TaskForm
         setTitle={setTitle}
         setDescr={setDescr}
