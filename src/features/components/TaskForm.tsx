@@ -1,14 +1,5 @@
 import useTasksContext from '../hooks/useTasksContext';
 
-// interface TaskFormProps {
-//   setTitle: React.Dispatch<React.SetStateAction<string>>;
-//   setDescr: React.Dispatch<React.SetStateAction<string>>;
-//   setName: React.Dispatch<React.SetStateAction<string>>;
-//   setPhone: React.Dispatch<React.SetStateAction<string>>;
-//   setCity: React.Dispatch<React.SetStateAction<string>>;
-//   onSendTaks: () => void;
-// }
-
 export default function TaskForm() {
   const {
     title,
