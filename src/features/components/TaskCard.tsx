@@ -1,3 +1,5 @@
+import useTasksContext from "../hooks/useTasksContext";
+
 type Task = {
   _id: string;
   title: string;
@@ -13,18 +15,15 @@ type Task = {
   };
 };
 
-interface TaskCardProps {
-  dataGetAllTasks: Task[] | undefined;
-}
-
-export default function TaskCard({ dataGetAllTasks }:TaskCardProps) {
+export default function TaskCard() {
+    const { dataGetAllTasks }= useTasksContext();
   return (
     <div className="app text-center">
       <h1 className="title mb-6 text-3xl font-bold text-gray-800">
         📋 Task Manager
       </h1>
       <div className="task-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        {dataGetAllTasks?.map((task) => (
+        {(dataGetAllTasks as Task[] | undefined)?.map((task) => (
           <div
             key={task._id}
             className="task-card rounded-xl bg-white p-4 text-left shadow-lg transition hover:shadow-xl"

@@ -1,20 +1,52 @@
-interface TaskFormProps {
-  setTitle: React.Dispatch<React.SetStateAction<string>>;
-  setDescr: React.Dispatch<React.SetStateAction<string>>;
-  setName: React.Dispatch<React.SetStateAction<string>>;
-  setPhone: React.Dispatch<React.SetStateAction<string>>;
-  setCity: React.Dispatch<React.SetStateAction<string>>;
-  onSendTaks: () => void;
-}
+import useTasksContext from '../hooks/useTasksContext';
 
-export default function TaskForm({
-  setTitle,
-  setDescr,
-  setName,
-  setPhone,
-  setCity,
-  onSendTaks,
-}: TaskFormProps) {
+// interface TaskFormProps {
+//   setTitle: React.Dispatch<React.SetStateAction<string>>;
+//   setDescr: React.Dispatch<React.SetStateAction<string>>;
+//   setName: React.Dispatch<React.SetStateAction<string>>;
+//   setPhone: React.Dispatch<React.SetStateAction<string>>;
+//   setCity: React.Dispatch<React.SetStateAction<string>>;
+//   onSendTaks: () => void;
+// }
+
+export default function TaskForm() {
+  const {
+    title,
+    name,
+    phone,
+    descr,
+    city,
+    mutateAddTask,
+    refetchGetAllTasks,
+    setTitle,
+    setDescr,
+    setName,
+    setPhone,
+    setCity,
+  } = useTasksContext();
+  const onSendTaks = () => {
+    const data = {
+      title,
+      description: descr,
+      userDetails: {
+        name,
+        phone,
+        city,
+      },
+    };
+
+    mutateAddTask(data, {
+      onSuccess: () => {
+        refetchGetAllTasks();
+      },
+    });
+    setTitle('');
+    setDescr('');
+    setName('');
+    setPhone('');
+    setCity('');
+  };
+
   return (
     <>
       <h2 className="mb-2 p-4 text-center text-3xl font-bold text-gray-800">
